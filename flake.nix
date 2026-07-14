@@ -1,29 +1,23 @@
 # flake.nix
 {
   description = "zxcv's NixOS machine configurations";
-
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
     nixos-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
-
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     flake-compat = {
       url = "github:edolstra/flake-compat";
       flake = false;
     };
   };
-
   outputs =
     {
       self,
@@ -37,7 +31,6 @@
     let
       systems = [ "x86_64-linux" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
-
       pkgsFor =
         system:
         import nixpkgs {
@@ -48,13 +41,12 @@
     in
     {
       overlays.default = import ./overlays { inherit inputs; };
-
       nixosConfigurations.tungsten = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
           ./hosts/tungsten.nix
-          sops-nix.nixosModules.sops
+          # sops-nix.nixosModules.sops
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -64,22 +56,18 @@
           }
         ];
       };
-
       homeConfigurations."zxcv@tungsten" = home-manager.lib.homeManagerConfiguration {
         pkgs = pkgsFor "x86_64-linux";
         extraSpecialArgs = { inherit inputs; };
         modules = [ ./home ];
       };
-
       packages = forAllSystems (
         system:
         import ./pkgs {
           pkgs = pkgsFor system;
         }
       );
-
       formatter = forAllSystems (system: (pkgsFor system).nixfmt-rfc-style);
-
       devShells = forAllSystems (
         system:
         let

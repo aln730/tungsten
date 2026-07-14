@@ -1,0 +1,10 @@
+keys:
+  - &admin_zxcv age1lwmvfdux59xvedwf42fuwxjlxm502huhcrzcnnj0uud8nkxys97q7fwp9a
+  - &host_tungsten age10xcv9yuf2df2ewlpqsdt2adazq2trnrsa3k3sukytcs6rr7jnfxqkwuruc
+
+creation_rules:
+  - path_regex: secrets/tungsten\.yaml$
+    key_groups:
+      - age:
+          - *admin_zxcv
+          - *host_tungsten
