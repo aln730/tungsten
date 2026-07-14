@@ -2,6 +2,8 @@
 {
   programs.git = {
     enable = true;
+    userName = "Arnav Gawas";
+    userEmail = "arnsg730@proton.me";
     delta.enable = true;
     extraConfig = {
       init.defaultBranch = "main";

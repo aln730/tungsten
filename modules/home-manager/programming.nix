@@ -9,7 +9,6 @@
     python3
     go
     nodejs
-    nodePackages.npm
   ];
 
   programs.zsh.sessionVariables = {
