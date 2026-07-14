@@ -9,8 +9,8 @@
 {
   imports = [
     inputs.nixos-hardware.nixosModules.lenovo-thinkpad-p16s-intel-gen3
-
     ./tungsten/hardware-configuration.nix
+    ../modules/nixos/desktop.nix
   ];
   
   boot.loader.systemd-boot.enable = true;
