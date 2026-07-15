@@ -12,6 +12,7 @@
     tree
     htop
     btop
+    nerd-fonts.jetbrains-mono
   ];
 
   programs.zsh = {
