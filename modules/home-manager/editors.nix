@@ -19,6 +19,17 @@
 
   programs.emacs = {
     enable = true;
-    package = pkgs.emacs;
+    package = pkgs.emacs30-pgtk;
   };
+
+  home.packages = with pkgs; [
+    # Doom's install script + runtime deps
+    git
+    (ripgrep)
+    fd
+    emacs-lsp-booster
+    cmake
+    libtool
+    gnutls
+  ];
 }
