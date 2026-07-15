@@ -41,7 +41,7 @@
       z = "fastfetch";
       ncd = "cd /etc/nixos";
       nw = "sudo nixos-rebuild switch --flake .#tungsten";
-      e = "emacs -nw";
+      e = "emacs";
     };
   };
 
