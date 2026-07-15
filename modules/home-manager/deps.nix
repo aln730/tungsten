@@ -11,6 +11,6 @@
 
   programs.zsh.sessionVariables = {
     LIBCLANG_PATH = "${pkgs.libclang.lib}/lib";
+    LIBFREEFARE_PATH = "${pkgs.libfreefare}";
   };
 }
-
