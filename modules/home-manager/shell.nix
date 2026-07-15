@@ -14,6 +14,7 @@
     btop
     nerd-fonts.jetbrains-mono
     fastfetch
+    nerd-fonts.symbols-only
   ];
 
   programs.zsh = {
