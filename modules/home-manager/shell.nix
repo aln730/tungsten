@@ -37,6 +37,10 @@
       la = "eza -la --icons --git";
       lt = "eza --tree --icons";
       cat = "bat";
+      c = "clear";
+      z = "fastfetch";
+      ncd = "cd /etc/nixos";
+      nw = "sudo nixos-rebuild switch --flake .#tungsten";
     };
   };
 
