@@ -33,4 +33,11 @@
   };
 
   services.blueman.enable = false;
+ 
+  environment.systemPackages = with pkgs; [
+    pritunl-client
+  ];
+
+  systemd.packages = [ pkgs.pritunl-client ];
+  systemd.services.pritunl-client.wantedBy = [ "multi-user.target" ];
 }
