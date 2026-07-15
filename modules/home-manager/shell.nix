@@ -116,4 +116,26 @@
     baseIndex = 1;
     mouse = true;
   };
+
+  programs.alacritty = {
+    enable = true;
+    settings = {
+    window = {
+      opacity = 0.75;
+      padding = {
+        x = 8;
+        y = 8;
+      };
+    };
+    font = {
+      normal.family = "JetBrainsMono Nerd Font";
+      size = 12;
+      };
+    };
+  };
+
+  programs.alacritty.settings.terminal.shell = {
+    program = "tmux";
+    args = [ "new-session" "-A" "-s" "main" ];
+  };
 }
