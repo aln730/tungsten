@@ -12,6 +12,7 @@
     ../modules/home-manager/editors.nix
     ../modules/home-manager/programming.nix
     ../modules/home-manager/desktop.nix
+    ../modules/home-manager/dev.nix
   ];
 
   home.username = "zxcv";
