@@ -8,6 +8,7 @@
     libfreefare
     libnfc
     libclang
+    pamtester
   ];
 
   programs.zsh.sessionVariables = {
