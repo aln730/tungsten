@@ -9,6 +9,7 @@
     libnfc
     libclang
     pamtester
+    usbutils
   ];
 
   programs.zsh.sessionVariables = {

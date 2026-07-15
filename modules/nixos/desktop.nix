@@ -40,4 +40,12 @@
 
   systemd.packages = [ pkgs.pritunl-client ];
   systemd.services.pritunl-client.wantedBy = [ "multi-user.target" ];
+
+  environment.etc."nfc/libnfc.conf".text = ''
+  device.name = "pn532_uart"
+  device.connstring = "pn532_uart:/dev/ttyUSB0"
+  allow_autoscan = true
+  allow_intrusive_scan = false
+  log_level = 1
+  '';
 }
