@@ -22,6 +22,10 @@
     package = pkgs.emacs30-pgtk;
   };
 
+  programs.zsh.sessionVariables = {
+  PATH = "$HOME/.config/emacs/bin:$PATH";
+  };
+
   home.packages = with pkgs; [
     # Doom's install script + runtime deps
     git
