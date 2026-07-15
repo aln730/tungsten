@@ -13,6 +13,7 @@
     htop
     btop
     nerd-fonts.jetbrains-mono
+    fastfetch
   ];
 
   programs.zsh = {
