@@ -5,4 +5,4 @@
 -----
 Anatomy:
 
-<img width="302" height="494" alt="image" src="https://github.com/user-attachments/assets/3c4f5163-77b7-4010-b620-86f3ddb94f5f" />
+<img width="456" height="709" alt="image" src="https://github.com/user-attachments/assets/33939b63-3833-47fa-8765-f882d868f632" />
