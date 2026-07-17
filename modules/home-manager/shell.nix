@@ -127,16 +127,19 @@
   programs.alacritty = {
     enable = true;
     settings = {
-    window = {
-      opacity = 0.75;
-      padding = {
-        x = 8;
-        y = 8;
+      selection = {
+        save_to_clipboard = true;
       };
-    };
-    font = {
-      normal.family = "JetBrainsMono Nerd Font";
-      size = 12;
+      window = {
+        opacity = 0.75;
+        padding = {
+          x = 8;
+          y = 8;
+        };
+      };
+      font = {
+        normal.family = "JetBrainsMono Nerd Font";
+        size = 12;
       };
     };
   };
