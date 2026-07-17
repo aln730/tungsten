@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
   home.packages = with pkgs; [
     discord
@@ -8,7 +8,15 @@
     gnomeExtensions.vitals
   ];
 
+  home.file.".wallpaper.jpg".source = ../../home/wallpapers/tungsten.jpg;
+
   dconf.settings = {
+    "org/gnome/desktop/background" = {
+      picture-uri = "file://${config.home.homeDirectory}/.wallpaper.jpg";
+      picture-uri-dark = "file://${config.home.homeDirectory}/.wallpaper.jpg";
+      picture-options = "zoom";
+    };
+
     "org/gnome/shell" = {
       enabled-extensions = [
         "Vitals@CoreCoding.com"

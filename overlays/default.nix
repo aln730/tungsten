@@ -4,4 +4,5 @@ final: prev: {
     inherit (prev) system;
     config.allowUnfree = true;
   };
+  gatekeeper-pam = final.callPackage ../pkgs/gatekeeper-pam.nix { inherit inputs; };
 }
