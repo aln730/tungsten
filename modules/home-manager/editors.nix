@@ -32,4 +32,8 @@
     libtool
     gnutls
   ];
+
+  home.file.".config/doom/init.el".source = ../../home/doom/init.el;
+  home.file.".config/doom/config.el".source = ../../home/doom/config.el;
+  home.file.".config/doom/packages.el".source = ../../home/doom/packages.el;
 }
