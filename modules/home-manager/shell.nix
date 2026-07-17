@@ -15,6 +15,7 @@
     nerd-fonts.jetbrains-mono
     fastfetch
     nerd-fonts.symbols-only
+    mongosh
   ];
 
   programs.zsh = {
