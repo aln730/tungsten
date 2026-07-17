@@ -64,6 +64,7 @@
         style = "bold cyan";
         truncation_length = 3;
         truncate_to_repo = true;
+        read_only = "";
       };
 
       git_branch = {
