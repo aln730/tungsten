@@ -13,6 +13,10 @@
       url = "github:edolstra/flake-compat";
       flake = false;
     };
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs =
     {
@@ -21,6 +25,7 @@
       nixos-unstable,
       home-manager,
       nixos-hardware,
+      sops-nix,
       ...
     }@inputs:
     let
@@ -41,6 +46,7 @@
         specialArgs = { inherit inputs; };
         modules = [
           ./hosts/tungsten.nix
+          sops-nix.nixosModules.sops
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;

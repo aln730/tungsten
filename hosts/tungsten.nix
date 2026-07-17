@@ -23,9 +23,20 @@
     ];
     auto-optimise-store = true;
   };
-  nixpkgs.config.allowUnfree = true;
 
+  nixpkgs.config.allowUnfree = true;
   networking.networkmanager.enable = true;
+
+  sops.defaultSopsFile = ../secrets/tungsten.yaml;
+  sops.age.keyFile = "var/lib/sops-nix/key.txt";
+
+  sops.secrets."eduroam-nmconnection" = {
+    path = "/etc/NetworkManager/system-connections/eduroam.nmconnection";
+    owner = "root";
+    group = "root";
+    mode = "0600";
+    restartUnits = [ "NetworkManager.service" ];
+  };
 
   users.users.zxcv = {
     isNormalUser = true;

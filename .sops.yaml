@@ -1,0 +1,7 @@
+keys:
+  - &tungsten age1hdk272xd50kpuarznjhlv349aqhhsfmk07carfhchupyfr65vvuqq24h6r
+creation_rules:
+  - path_regex: secrets/.*\.yaml$
+    key_groups:
+      - age:
+          - *tungsten

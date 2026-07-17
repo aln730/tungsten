@@ -16,6 +16,8 @@
     fastfetch
     nerd-fonts.symbols-only
     mongosh
+    age
+    sops
   ];
 
   programs.zsh = {
