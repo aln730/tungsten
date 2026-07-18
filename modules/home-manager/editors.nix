@@ -25,7 +25,7 @@
   home.packages = with pkgs; [
     # Doom's install script + runtime deps
     git
-    (ripgrep)
+    ripgrep
     fd
     emacs-lsp-booster
     cmake

@@ -10,9 +10,9 @@
     go
     nodejs
   ];
-  
+
   programs.zsh.sessionVariables = {
-  GOPATH = "$HOME/go";
-  PATH = "$HOME/go/bin:$HOME/.cargo/bin:$HOME/.config/emacs/bin:$PATH";
+    GOPATH = "$HOME/go";
+    PATH = "$HOME/go/bin:$HOME/.cargo/bin:$HOME/.config/emacs/bin:$PATH";
   };
 }

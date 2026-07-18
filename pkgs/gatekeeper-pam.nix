@@ -1,4 +1,13 @@
-{ rustPlatform, pkg-config, linux-pam, openssl, libfreefare, libnfc, libclang, inputs }:
+{
+  rustPlatform,
+  pkg-config,
+  linux-pam,
+  openssl,
+  libfreefare,
+  libnfc,
+  libclang,
+  inputs,
+}:
 
 rustPlatform.buildRustPackage {
   pname = "gatekeeper-pam";
@@ -6,8 +15,16 @@ rustPlatform.buildRustPackage {
   src = inputs.gatekeeper-pam;
   cargoLock.lockFile = "${inputs.gatekeeper-pam}/Cargo.lock";
 
-  nativeBuildInputs = [ pkg-config libclang ];
-  buildInputs = [ linux-pam openssl libfreefare libnfc ];
+  nativeBuildInputs = [
+    pkg-config
+    libclang
+  ];
+  buildInputs = [
+    linux-pam
+    openssl
+    libfreefare
+    libnfc
+  ];
 
   LIBCLANG_PATH = "${libclang.lib}/lib";
   BINDGEN_EXTRA_CLANG_ARGS = "-I${linux-pam}/include";

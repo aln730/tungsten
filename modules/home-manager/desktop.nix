@@ -25,7 +25,12 @@
     };
 
     "org/gnome/shell/extensions/vitals" = {
-      hot-sensors = [ "_processor_usage_" "_memory_usage_" "_temperature_" "_network-rx_" ];
+      hot-sensors = [
+        "_processor_usage_"
+        "_memory_usage_"
+        "_temperature_"
+        "_network-rx_"
+      ];
       position-in-panel = 1;
     };
   };

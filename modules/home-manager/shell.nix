@@ -151,6 +151,11 @@
 
   programs.alacritty.settings.terminal.shell = {
     program = "tmux";
-    args = [ "new-session" "-A" "-s" "main" ];
+    args = [
+      "new-session"
+      "-A"
+      "-s"
+      "main"
+    ];
   };
 }

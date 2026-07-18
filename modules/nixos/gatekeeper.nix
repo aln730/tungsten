@@ -1,15 +1,22 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
-let cfg = config.services.gatekeeper-pam;
-in {
+let
+  cfg = config.services.gatekeeper-pam;
+in
+{
   options.services.gatekeeper-pam.enable = lib.mkEnableOption "gatekeeper NFC PAM";
 
   config = lib.mkIf cfg.enable {
     services.udev.extraRules = ''
-    SUBSYSTEM=="tty", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001", GROUP="gatekeeper", MODE="0660", SYMLINK+="gatekeeper-nfc", ENV{ID_MM_DEVICE_IGNORE}="1"
+      SUBSYSTEM=="tty", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001", GROUP="gatekeeper", MODE="0660", SYMLINK+="gatekeeper-nfc", ENV{ID_MM_DEVICE_IGNORE}="1"
     '';
 
-    users.groups.gatekeeper = {};
+    users.groups.gatekeeper = { };
     users.users.gatekeeperd = {
       isSystemUser = true;
       group = "gatekeeper";
