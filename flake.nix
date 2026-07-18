@@ -17,6 +17,10 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    gatekeeper-pam = {
+      url = "github:aln730/gatekeeper-pam";
+      flake = false;
+    };
   };
   outputs =
     {
@@ -45,6 +49,7 @@
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
+          { nixpkgs.overlays = [ self.overlays.default ]; }
           ./hosts/tungsten.nix
           sops-nix.nixosModules.sops
           home-manager.nixosModules.home-manager
@@ -65,6 +70,7 @@
         system:
         import ./pkgs {
           pkgs = pkgsFor system;
+          inherit inputs;
         }
       );
       formatter = forAllSystems (system: (pkgsFor system).nixfmt-rfc-style);
