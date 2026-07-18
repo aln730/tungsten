@@ -36,11 +36,9 @@ in
     systemd.services.gatekeeperd = {
       description = "Gatekeeper NFC daemon";
       wantedBy = [ "multi-user.target" ];
-      after = [ "network-online.target" ];
-      wants = [ "network-online.target" ];
+      before = [ "display-manager.service" ];
       serviceConfig = {
         ExecStart = "${pkgs.gatekeeper-pam}/bin/gatekeeperd";
-        ExecStartPre = "${pkgs.coreutils}/bin/sleep 3";
         User = "gatekeeperd";
         Group = "gatekeeper";
         Restart = "always";
@@ -56,6 +54,10 @@ in
       };
     };
 
+    systemd.services.display-manager = {
+      after = [ "gatekeeperd.service" ];
+      wants = [ "gatekeeperd.service" ];
+    };
     security.pam.services.gdm-password.rules.auth.gatekeeper = {
       control = "sufficient";
       modulePath = "${pkgs.gatekeeper-pam}/lib/security/pam_gatekeeper.so";
