@@ -42,7 +42,6 @@
       lt = "eza --tree --icons";
       cat = "bat";
       c = "clear";
-      x = "exit";
       z = "fastfetch";
       ncd = "cd /etc/nixos";
       nw = "sudo nixos-rebuild switch --flake .#tungsten";

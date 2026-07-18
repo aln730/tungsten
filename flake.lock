@@ -16,22 +16,6 @@
         "type": "github"
       }
     },
-    "gatekeeper-pam": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1784331899,
-        "narHash": "sha256-WSYl8PvICiCkawqThXbBKxV0YFwDNDG/jVJ+oZDIFmQ=",
-        "owner": "aln730",
-        "repo": "gatekeeper-pam",
-        "rev": "695f1b41c62ad4e46bc4a8dcceb0ae3538dae412",
-        "type": "github"
-      },
-      "original": {
-        "owner": "aln730",
-        "repo": "gatekeeper-pam",
-        "type": "github"
-      }
-    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -120,7 +104,6 @@
     "root": {
       "inputs": {
         "flake-compat": "flake-compat",
-        "gatekeeper-pam": "gatekeeper-pam",
         "home-manager": "home-manager",
         "nixos-hardware": "nixos-hardware",
         "nixos-unstable": "nixos-unstable",

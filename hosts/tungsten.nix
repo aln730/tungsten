@@ -9,7 +9,6 @@
     inputs.nixos-hardware.nixosModules.lenovo-thinkpad-p16s-intel-gen3
     ./tungsten/hardware-configuration.nix
     ../modules/nixos/desktop.nix
-    ../modules/nixos/gatekeeper.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -25,13 +24,12 @@
     auto-optimise-store = true;
   };
 
-  services.gatekeeper-pam.enable = true;
-
   nixpkgs.config.allowUnfree = true;
   networking.networkmanager.enable = true;
 
   sops.defaultSopsFile = ../secrets/tungsten.yaml;
   sops.age.keyFile = "var/lib/sops-nix/key.txt";
+
   sops.secrets."eduroam-nmconnection" = {
     path = "/etc/NetworkManager/system-connections/eduroam.nmconnection";
     owner = "root";

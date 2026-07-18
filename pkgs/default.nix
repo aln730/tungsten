@@ -1,4 +1,5 @@
-{ pkgs, inputs }:
+{ pkgs }:
 {
-  gatekeeper-pam = pkgs.callPackage ./gatekeeper-pam.nix { inherit inputs; };
+  # Custom packages go here, e.g.:
+  # my-tool = pkgs.callPackage ./my-tool { };
 }
