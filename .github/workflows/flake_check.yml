@@ -1,7 +1,9 @@
 name: Flake Check
 
-on: [pull_request]
-
+on: 
+  pull_request:
+  push:
+    branches: [main]
 jobs:
   flake-check:
     runs-on: ubuntu-latest
