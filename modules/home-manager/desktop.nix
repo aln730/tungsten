@@ -6,6 +6,7 @@
     alacritty
     firefox
     gnomeExtensions.vitals
+    qFlipper
   ];
 
   home.file.".wallpaper.jpg".source = ../../home/wallpapers/tungsten.jpg;

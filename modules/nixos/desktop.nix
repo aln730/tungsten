@@ -32,6 +32,7 @@
   ];
   systemd.packages = [ pkgs.pritunl-client ];
   systemd.services.pritunl-client.wantedBy = [ "multi-user.target" ];
+  services.udev.packages = [ pkgs.qFlipper ];
   environment.etc."nfc/libnfc.conf".text = ''
   device.name = "pn532_uart"
   device.connstring = "pn532_uart:/dev/ttyUSB0"
