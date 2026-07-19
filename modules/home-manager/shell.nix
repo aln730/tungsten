@@ -47,7 +47,7 @@
       ncd = "cd /etc/nixos";
       nw = "sudo nixos-rebuild switch --flake .#tungsten";
       e = "emacs";
-      vpn = "printurl-client-electron";
+      vpn = "pritunl-client-electron";
     };
   };
 
