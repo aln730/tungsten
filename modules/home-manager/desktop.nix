@@ -7,6 +7,7 @@
     firefox
     gnomeExtensions.vitals
     qFlipper
+    vscode
   ];
 
   home.file.".wallpaper.jpg".source = ../../home/wallpapers/tungsten.jpg;
