@@ -15,6 +15,14 @@ in
     services.udev.extraRules = ''
       SUBSYSTEM=="tty", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001", GROUP="gatekeeper", MODE="0660", SYMLINK+="gatekeeper-nfc", ENV{ID_MM_DEVICE_IGNORE}="1"
     '';
+    
+    environment.etc."nfc/libnfc.conf".text = ''
+      device.name = "pn532_uart"
+      device.connstring = "pn532_uart:/dev/gatekeeper-nfc"
+      allow_autoscan = false
+      allow_intrusive_scan = false
+      log_level = 1
+    '';
 
     users.groups.gatekeeper = { };
     users.users.gatekeeperd = {

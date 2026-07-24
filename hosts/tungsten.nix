@@ -48,6 +48,7 @@
       "wheel"
       "networkmanager"
       "dialout"
+      "gatekeeper"
     ];
     shell = pkgs.zsh;
   };

@@ -11,6 +11,19 @@
   ];
 
   home.file.".wallpaper.jpg".source = ../../home/wallpapers/tungsten.jpg;
+  
+  xdg.configFile."autostart/gnome-keyring-pkcs11.desktop".text = ''
+    [Desktop Entry]
+    Hidden=true
+  '';
+  xdg.configFile."autostart/gnome-keyring-secrets.desktop".text = ''
+    [Desktop Entry]
+    Hidden=true
+  '';
+  xdg.configFile."autostart/gnome-keyring-ssh.desktop".text = ''
+    [Desktop Entry]
+    Hidden=true
+  '';
 
   dconf.settings = {
     "org/gnome/desktop/background" = {
