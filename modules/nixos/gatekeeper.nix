@@ -71,5 +71,11 @@ in
       modulePath = "${pkgs.gatekeeper-pam}/lib/security/pam_gatekeeper.so";
       order = 10000;
     };
+    security.pam.services.sudo.rules.auth.gatekeeper = {
+      control = "sufficient";
+      modulePath = "${pkgs.gatekeeper-pam}/lib/security/pam_gatekeeper.so";
+      args = [ "silent"];
+      order = 10000;
+    };    
   };
 }
