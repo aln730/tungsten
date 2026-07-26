@@ -37,4 +37,7 @@
   services.gnome.gnome-keyring.enable = false;
   security.pam.services.login.enableGnomeKeyring = false;
   security.pam.services.gdm.enableGnomeKeyring = false;
+
+  virtualisation.docker.enable = true;
+  users.users.zxcv.extraGroups = [ "docker" ];
 }
