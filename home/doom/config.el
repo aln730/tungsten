@@ -76,6 +76,7 @@
   (setq elcord-idle-timer nil)
   (setq elcord-buffer-details-format-function
         (lambda ()
-          (if-let ((proj (project-current)))
-              (format "Editing %s <%s>" (buffer-name) (file-name-nondirectory (directory-file-name (project-root proj))))
+          (if-let ((proj-root (projectile-project-root)))
+              (format "Editing %s <%s>" (buffer-name) (file-name-nondirectory (directory-file-name proj-root)))
+            (format "Editing %s" (buffer-name)))))
   (elcord-mode))
