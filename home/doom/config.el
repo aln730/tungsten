@@ -73,9 +73,9 @@
 ;; they are implemented.
 (use-package! elcord
   :config
+  (setq elcord-idle-timer nil)
   (setq elcord-buffer-details-format-function
         (lambda ()
           (if-let ((proj (project-current)))
               (format "Editing %s <%s>" (buffer-name) (file-name-nondirectory (directory-file-name (project-root proj))))
-            (format "Editing %s" (buffer-name)))))
   (elcord-mode))
