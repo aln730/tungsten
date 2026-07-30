@@ -28,6 +28,8 @@
 
   services.gatekeeper-pam.enable = true;
 
+  nix.settings.filter-syscalls = false;
+
   nixpkgs.config.allowUnfree = true;
   networking.networkmanager.enable = true;
 
