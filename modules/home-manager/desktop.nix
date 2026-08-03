@@ -11,7 +11,7 @@
   ];
 
   home.file.".wallpaper.jpg".source = ../../home/wallpapers/tungsten.jpg;
-  
+
   xdg.configFile."autostart/gnome-keyring-pkcs11.desktop".text = ''
     [Desktop Entry]
     Hidden=true

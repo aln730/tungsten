@@ -15,7 +15,7 @@ in
     services.udev.extraRules = ''
       SUBSYSTEM=="tty", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001", GROUP="gatekeeper", MODE="0660", SYMLINK+="gatekeeper-nfc", ENV{ID_MM_DEVICE_IGNORE}="1"
     '';
-    
+
     environment.etc."nfc/libnfc.conf".text = ''
       device.name = "pn532_uart"
       device.connstring = "pn532_uart:/dev/gatekeeper-nfc"
@@ -74,8 +74,8 @@ in
     security.pam.services.sudo.rules.auth.gatekeeper = {
       control = "sufficient";
       modulePath = "${pkgs.gatekeeper-pam}/lib/security/pam_gatekeeper.so";
-      args = [ "silent"];
+      args = [ "silent" ];
       order = 10000;
-    };    
+    };
   };
 }
