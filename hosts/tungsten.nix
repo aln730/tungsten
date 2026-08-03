@@ -26,6 +26,12 @@
     auto-optimise-store = true;
   };
 
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "-d --delete-older-than 30d";
+  };
+
   services.gatekeeper-pam.enable = true;
 
   nix.settings.filter-syscalls = false;
