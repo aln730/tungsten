@@ -61,7 +61,7 @@
           }
         ];
       };
-      
+
       homeConfigurations."zxcv@tungsten" = home-manager.lib.homeManagerConfiguration {
         pkgs = pkgsFor "x86_64-linux";
         extraSpecialArgs = { inherit inputs; };
