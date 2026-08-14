@@ -85,4 +85,3 @@
      :config
      (treemacs-follow-mode t))
      (treemacs-project-follow-mode t))
-
