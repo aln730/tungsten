@@ -25,12 +25,12 @@
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
 ;; refresh your font settings. If Emacs still can't find your font, it likely
 ;; wasn't installed correctly. Font issues are rarely Doom issues!
-(setq doom-font (font-spec :family "Fira Code" :size 16 :weight 'semi-light)
+(setq doom-font (font-spec :family "Fira Code" :size 14 :weight 'semi-light))
 ;;      doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-molokai)
+(setq doom-theme 'doom-moonlight)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -73,10 +73,16 @@
 ;; they are implemented.
 (use-package! elcord
   :config
-  (setq elcord-idle-timer nil)
   (setq elcord-buffer-details-format-function
         (lambda ()
           (if-let ((proj-root (projectile-project-root)))
-              (format "Editing %s <%s>" (buffer-name) (file-name-nondirectory (directory-file-name proj-root)))
+              (format "Editing %s <%s>" (buffer-name)
+                      (file-name-nondirectory (directory-file-name proj-root)))
             (format "Editing %s" (buffer-name)))))
   (elcord-mode))
+
+(use-package! treemacs
+     :config
+     (treemacs-follow-mode t))
+     (treemacs-project-follow-mode t))
+
