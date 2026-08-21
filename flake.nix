@@ -21,6 +21,8 @@
       url = "github:aln730/gatekeeper-pam";
       flake = false;
     };
+     win98se-plymouth.url =
+       "github:nilp0inter/plymouth-theme-win98se-inspired-nixos-theme";
   };
   outputs =
     {
@@ -30,6 +32,7 @@
       home-manager,
       nixos-hardware,
       sops-nix,
+      win98se-plymouth,
       ...
     }@inputs:
     let
@@ -52,6 +55,7 @@
           { nixpkgs.overlays = [ self.overlays.default ]; }
           ./hosts/tungsten.nix
           sops-nix.nixosModules.sops
+          win98se-plymouth.nixosModules.default
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
