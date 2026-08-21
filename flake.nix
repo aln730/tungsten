@@ -21,8 +21,7 @@
       url = "github:aln730/gatekeeper-pam";
       flake = false;
     };
-     win98se-plymouth.url =
-       "github:nilp0inter/plymouth-theme-win98se-inspired-nixos-theme";
+    win98se-plymouth.url = "github:nilp0inter/plymouth-theme-win98se-inspired-nixos-theme";
   };
   outputs =
     {
@@ -65,7 +64,7 @@
           }
         ];
       };
-      
+
       homeConfigurations."zxcv@tungsten" = home-manager.lib.homeManagerConfiguration {
         pkgs = pkgsFor "x86_64-linux";
         extraSpecialArgs = { inherit inputs; };
