@@ -31,6 +31,9 @@
     cmake
     libtool
     gnutls
+    fira-code
+    gnumake
+    gcc
   ];
 
   home.file.".config/doom/init.el".source = ../../home/doom/init.el;

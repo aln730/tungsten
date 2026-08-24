@@ -21,6 +21,7 @@
       url = "github:aln730/gatekeeper-pam";
       flake = false;
     };
+    win98se-plymouth.url = "github:nilp0inter/plymouth-theme-win98se-inspired-nixos-theme";
   };
   outputs =
     {
@@ -30,6 +31,7 @@
       home-manager,
       nixos-hardware,
       sops-nix,
+      win98se-plymouth,
       ...
     }@inputs:
     let
@@ -52,6 +54,7 @@
           { nixpkgs.overlays = [ self.overlays.default ]; }
           ./hosts/tungsten.nix
           sops-nix.nixosModules.sops
+          win98se-plymouth.nixosModules.default
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -61,22 +64,7 @@
           }
         ];
       };
-      nixosConfigurations.x250 = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
-        modules = [
-          { nixpkgs.overlays = [ self.overlays.default ]; }
-          ./hosts/x250.nix
-          sops-nix.nixosModules.sops
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = { inherit inputs; };
-            home-manager.users.zxcv = import ./home;
-          }
-        ];
-      };
+
       homeConfigurations."zxcv@tungsten" = home-manager.lib.homeManagerConfiguration {
         pkgs = pkgsFor "x86_64-linux";
         extraSpecialArgs = { inherit inputs; };
@@ -94,7 +82,7 @@
           inherit inputs;
         }
       );
-      formatter = forAllSystems (system: (pkgsFor system).nixfmt-rfc-style);
+      formatter = forAllSystems (system: (pkgsFor system).nixfmt);
       devShells = forAllSystems (
         system:
         let
@@ -104,7 +92,7 @@
           default = pkgs.mkShell {
             name = "tungsten-nixos-shell";
             packages = with pkgs; [
-              nixfmt-rfc-style
+              nixfmt
               nil
             ];
           };

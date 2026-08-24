@@ -15,6 +15,7 @@
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.plymouth.win98se.label.mode = "release";
   networking.hostName = "tungsten";
   time.timeZone = "America/New_York";
   i18n.defaultLocale = "en_US.UTF-8";
