@@ -117,22 +117,6 @@
         "type": "github"
       }
     },
-    "nixpkgs_3": {
-      "locked": {
-        "lastModified": 1787135253,
-        "narHash": "sha256-RD2kNWCG+Bjo6h+JVjWVNntZs2GtRoeY2xHjts/FNkA=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "ffb3c9b700e759be2ef13237c9d8f953b32a1e46",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -141,8 +125,7 @@
         "nixos-hardware": "nixos-hardware",
         "nixos-unstable": "nixos-unstable",
         "nixpkgs": "nixpkgs_2",
-        "sops-nix": "sops-nix",
-        "win98se-plymouth": "win98se-plymouth"
+        "sops-nix": "sops-nix"
       }
     },
     "sops-nix": {
@@ -162,24 +145,6 @@
       "original": {
         "owner": "Mic92",
         "repo": "sops-nix",
-        "type": "github"
-      }
-    },
-    "win98se-plymouth": {
-      "inputs": {
-        "nixpkgs": "nixpkgs_3"
-      },
-      "locked": {
-        "lastModified": 1786831690,
-        "narHash": "sha256-9ZGEWz06X7t0jv3MMyUdUJ+issyDuAd69ZphDJ94FPA=",
-        "owner": "nilp0inter",
-        "repo": "plymouth-theme-win98se-inspired-nixos-theme",
-        "rev": "7c64b9ec51282478661c07469d4dc28b53d0f6f2",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nilp0inter",
-        "repo": "plymouth-theme-win98se-inspired-nixos-theme",
         "type": "github"
       }
     }
