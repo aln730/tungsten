@@ -65,6 +65,24 @@
         ];
       };
 
+      nixosConfigurations.x250 = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+        modules = [
+          { nixpkgs.overlays = [ self.overlays.default ]; }
+          ./hosts/x250.nix
+          sops-nix.nixosModules.sops
+          win98se-plymouth.nixosModules.default
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = { inherit inputs; };
+            home-manager.users.zxcv = import ./home;
+          }
+        ];
+      };
+
       homeConfigurations."zxcv@tungsten" = home-manager.lib.homeManagerConfiguration {
         pkgs = pkgsFor "x86_64-linux";
         extraSpecialArgs = { inherit inputs; };
